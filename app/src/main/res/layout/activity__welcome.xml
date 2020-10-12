@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_Welcome"
+    android:background="@color/colorBackground">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="60dp"
+        >
+        <TextView
+            android:id="@+id/Welcome_TXT_Welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:layout_marginBottom="50dp"
+            android:textSize="40dp"/>
+
+        <Button
+            android:id="@+id/Welcome_BTN_My_Orders"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:background="@drawable/mybtn"
+            android:layout_marginBottom="40dp"
+            android:text="My Orders"
+            />
+        <Button
+            android:id="@+id/Welcome_BTN_Daily_deals"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:background="@drawable/mybtn"
+            android:layout_marginBottom="100dp"
+            android:text="Our Daily Deals"
+            />
+
+
+        <Button
+            android:id="@+id/Welcome_BTN_LogOut"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:background="@drawable/mybtn"
+            android:layout_marginBottom="40dp"
+            android:text="Log Out"
+            />
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/LogIn_IMG_logo"
+        android:layout_width="94dp"
+        android:layout_height="136dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/cocktail"
+        android:rotation="@integer/google_play_services_version"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

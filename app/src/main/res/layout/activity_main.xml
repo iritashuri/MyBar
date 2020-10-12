@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_Main"
+    android:background="@color/colorBackground">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="50dp"
+        >
+
+        <TextView
+            android:id="@+id/Manin_TXT_wlcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to MyBar!"
+            android:textSize="50dp"
+            android:layout_marginBottom="150dp"
+            android:fontFamily="cursive"
+            android:textStyle="bold"
+            android:textColor="@color/colorDarkText"
+            android:shadowColor="@color/colorTextShadowWhite"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="3"
+            />
+
+        <Button
+            android:id="@+id/Main_BTN_signIn"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:background="@drawable/mybtn"
+            android:layout_marginBottom="40dp"
+            android:text="Sign In"
+            />
+
+        <Button
+            android:id="@+id/Main_BTN_signUp"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:background="@drawable/mybtn"
+            android:layout_marginBottom="20dp"
+            android:text="Sign Up"/>
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/Main_IMG_logo"
+        android:layout_width="94dp"
+        android:layout_height="136dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/cocktail"
+        android:rotation="@integer/google_play_services_version"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
