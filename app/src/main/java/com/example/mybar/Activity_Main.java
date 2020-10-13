@@ -12,10 +12,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Activity_Main extends AppCompatActivity {
 
-    private TextView Welcome_TXT_Welcome;
-    private Button Welcome_BTN_My_Orders;
-    private Button Welcome_BTN_Daily_deals;
-    private Button Welcome_BTN_LogOut;
+    private TextView Main_TXT_Welcome;
+    private Button Main_BTN_My_Orders;
+    private Button Main_BTN_Daily_deals;
+    private Button Main_BTN_LogOut;
     private FirebaseAuth mAuth;
 
 
@@ -25,16 +25,13 @@ public class Activity_Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__main);
 
-        Welcome_TXT_Welcome = findViewById(R.id.Welcome_TXT_Welcome);
-        Welcome_BTN_My_Orders = findViewById(R.id.Welcome_BTN_My_Orders);
-        Welcome_BTN_Daily_deals = findViewById(R.id.Welcome_BTN_Daily_deals);
-        Welcome_BTN_LogOut = findViewById(R.id.Welcome_BTN_LogOut);
+        findViews();
 
         mAuth = FirebaseAuth.getInstance();
 
 
         // Log out
-        Welcome_BTN_LogOut.setOnClickListener(new View.OnClickListener() {
+        Main_BTN_LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mAuth.signOut();
@@ -50,4 +47,12 @@ public class Activity_Main extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    private void findViews(){
+        Main_TXT_Welcome = findViewById(R.id.Main_TXT_Welcome);
+        Main_BTN_My_Orders = findViewById(R.id.Main_BTN_My_Orders);
+        Main_BTN_Daily_deals = findViewById(R.id.Main_BTN_Daily_deals);
+        Main_BTN_LogOut = findViewById(R.id.Main_BTN_LogOut);
+    }
+
 }

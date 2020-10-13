@@ -17,7 +17,7 @@
         >
 
         <TextView
-            android:id="@+id/Manin_TXT_wlcome"
+            android:id="@+id/Welcome_TXT_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome to MyBar!"
@@ -33,7 +33,7 @@
             />
 
         <Button
-            android:id="@+id/Main_BTN_signIn"
+            android:id="@+id/Welcome_BTN_signIn"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:textColor="#ffffff"
@@ -44,7 +44,7 @@
             />
 
         <Button
-            android:id="@+id/Main_BTN_signUp"
+            android:id="@+id/Welcome_BTN_signUp"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:textColor="#ffffff"
@@ -55,7 +55,7 @@
 
     </LinearLayout>
     <ImageView
-        android:id="@+id/Main_IMG_logo"
+        android:id="@+id/Welcome_IMG_logo"
         android:layout_width="94dp"
         android:layout_height="136dp"
         android:layout_gravity="bottom|right"

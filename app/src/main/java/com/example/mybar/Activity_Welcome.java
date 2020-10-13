@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class Activity_Welcome extends AppCompatActivity {
-    private Button Main_BTN_signIn;
-    private Button Main_BTN_signUp;
+    private Button Welcome_BTN_signIn;
+    private Button Welcome_BTN_signUp;
 
     FirebaseAuth mAuth;
 
@@ -25,8 +25,8 @@ public class Activity_Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Main_BTN_signIn = findViewById(R.id.Main_BTN_signIn);
-        Main_BTN_signUp = findViewById(R.id.Main_BTN_signUp);
+        Welcome_BTN_signIn = findViewById(R.id.Welcome_BTN_signIn);
+        Welcome_BTN_signUp = findViewById(R.id.Welcome_BTN_signUp);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -35,14 +35,14 @@ public class Activity_Welcome extends AppCompatActivity {
             openSWelcome();
         }
 
-        Main_BTN_signIn.setOnClickListener(new View.OnClickListener() {
+        Welcome_BTN_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openLogIn();
             }
         });
 
-        Main_BTN_signUp.setOnClickListener(new View.OnClickListener() {
+        Welcome_BTN_signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openSignUp();

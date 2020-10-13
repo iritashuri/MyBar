@@ -60,7 +60,7 @@ public class Activity_SignUp extends AppCompatActivity {
         SignUp_BTN_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               insertDetails();
+               RegisterUser();
             }
         });
 
@@ -84,8 +84,8 @@ public class Activity_SignUp extends AppCompatActivity {
         SignUp_TXT_logIn = findViewById(R.id.SignUp_TXT_logIn);
     }
 
-    // insert new user details
-    private void insertDetails() {
+    // Insert new user details
+    private void RegisterUser() {
         // Get users data
         final String full_name = SignUp_EDT_full_name.getText().toString().trim();
         final String email = SignUp_EDT_email.getText().toString().trim();
@@ -106,7 +106,7 @@ public class Activity_SignUp extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(Activity_SignUp.this, "Signed up successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_SignUp.this, "Signed up successfully", Toast.LENGTH_LONG).show();
 
                     // Get uuid from firebase auth
                     userId = mAuth.getCurrentUser().getUid();
@@ -128,7 +128,8 @@ public class Activity_SignUp extends AppCompatActivity {
                     finish();
                 } else {
                     // Show err message and set progress bar to invisible
-                    Toast.makeText(Activity_SignUp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_SignUp.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    // Stop showing progress bar
                     SignUp_PRBR_progressBar.setVisibility(View.GONE);
                 }
 
@@ -138,7 +139,7 @@ public class Activity_SignUp extends AppCompatActivity {
     }
 
     // Check if there are errors and return true if there is
-    boolean checkErrors(String full_name, String email, String password, String password2, String phone){
+    private boolean checkErrors(String full_name, String email, String password, String password2, String phone){
 
         // Check if there is no empty value
         if(checkEmpties(full_name, email, password, password2, phone)){
@@ -160,7 +161,7 @@ public class Activity_SignUp extends AppCompatActivity {
     }
 
     // Check if email or password was not insert
-    boolean checkEmpties(String full_name, String email, String password, String password2, String phone){
+    private boolean checkEmpties(String full_name, String email, String password, String password2, String phone){
         boolean to_return = false;
 
         if (checkEmptyTxt(email, SignUp_EDT_email, "Email")){
@@ -183,8 +184,8 @@ public class Activity_SignUp extends AppCompatActivity {
         return to_return;
     }
 
-    // Check if edit test is empty
-    boolean checkEmptyTxt(String str, EditText editText, String missing){
+    // Check if edit text is empty
+    private boolean checkEmptyTxt(String str, EditText editText, String missing){
         if(TextUtils.isEmpty(str)){
             editText.setError(missing + "is Required. ");
             return true;
