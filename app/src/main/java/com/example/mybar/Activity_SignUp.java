@@ -19,10 +19,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +53,7 @@ public class Activity_SignUp extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), Activity_Welcome.class));
+            startActivity(new Intent(getApplicationContext(), Activity_Main.class));
             finish();
         }
 
@@ -125,7 +123,7 @@ public class Activity_SignUp extends AppCompatActivity {
                     });
 
 
-                    Intent intent = new Intent(getApplicationContext(), Activity_Welcome.class);
+                    Intent intent = new Intent(getApplicationContext(), Activity_Main.class);
                     startActivity(intent);
                     finish();
                 } else {

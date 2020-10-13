@@ -13,52 +13,49 @@
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingTop="60dp"
+        android:paddingTop="50dp"
         >
+
         <TextView
-            android:id="@+id/Welcome_TXT_Welcome"
+            android:id="@+id/Manin_TXT_wlcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome"
-            android:layout_marginBottom="50dp"
-            android:textSize="40dp"/>
+            android:text="Welcome to MyBar!"
+            android:textSize="50dp"
+            android:layout_marginBottom="150dp"
+            android:fontFamily="cursive"
+            android:textStyle="bold"
+            android:textColor="@color/colorDarkText"
+            android:shadowColor="@color/colorTextShadowWhite"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="3"
+            />
 
         <Button
-            android:id="@+id/Welcome_BTN_My_Orders"
+            android:id="@+id/Main_BTN_signIn"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:background="@drawable/mybtn"
             android:layout_marginBottom="40dp"
-            android:text="My Orders"
+            android:text="Sign In"
             />
+
         <Button
-            android:id="@+id/Welcome_BTN_Daily_deals"
+            android:id="@+id/Main_BTN_signUp"
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:background="@drawable/mybtn"
-            android:layout_marginBottom="100dp"
-            android:text="Our Daily Deals"
-            />
-
-
-        <Button
-            android:id="@+id/Welcome_BTN_LogOut"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:textColor="#ffffff"
-            android:textSize="15dp"
-            android:background="@drawable/mybtn"
-            android:layout_marginBottom="40dp"
-            android:text="Log Out"
-            />
+            android:layout_marginBottom="20dp"
+            android:text="Sign Up"/>
 
     </LinearLayout>
     <ImageView
-        android:id="@+id/LogIn_IMG_logo"
+        android:id="@+id/Main_IMG_logo"
         android:layout_width="94dp"
         android:layout_height="136dp"
         android:layout_gravity="bottom|right"
