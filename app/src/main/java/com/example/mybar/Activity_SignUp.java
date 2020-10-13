@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,10 +15,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Activity_SignUp extends AppCompatActivity {
 
@@ -25,12 +33,15 @@ public class Activity_SignUp extends AppCompatActivity {
     private EditText SignUp_EDT_email;
     private EditText SignUp_EDT_password;
     private EditText SignUp_EDT_password_confirm;
+    private EditText SignUp_EDT_phone;
     private Button SignUp_BTN_SignUp;
     private ProgressBar SignUp_PRBR_progressBar;
     private TextView SignUp_TXT_logIn;
 
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
+    String userId;
 
 
     @Override
@@ -41,6 +52,7 @@ public class Activity_SignUp extends AppCompatActivity {
         findViews();
 
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         if (mAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), Activity_Welcome.class));
@@ -66,6 +78,7 @@ public class Activity_SignUp extends AppCompatActivity {
     private void findViews(){
         SignUp_EDT_full_name = findViewById(R.id.SignUp_EDT_full_name);
         SignUp_EDT_email = findViewById(R.id.SignUp_EDT_email);
+        SignUp_EDT_phone = findViewById(R.id.SignUp_EDT_phone);
         SignUp_EDT_password = findViewById(R.id.SignUp_EDT_password);
         SignUp_EDT_password_confirm = findViewById(R.id.SignUp_EDT_password_confirm);
         SignUp_BTN_SignUp = findViewById(R.id.SignUp_BTN_SignUp);
@@ -76,13 +89,14 @@ public class Activity_SignUp extends AppCompatActivity {
     // insert new user details
     private void insertDetails() {
         // Get users data
-        String full_name = SignUp_EDT_full_name.getText().toString().trim();
-        String email = SignUp_EDT_email.getText().toString().trim();
+        final String full_name = SignUp_EDT_full_name.getText().toString().trim();
+        final String email = SignUp_EDT_email.getText().toString().trim();
+        final String phone = SignUp_EDT_phone.getText().toString().trim();
         String password = SignUp_EDT_password.getText().toString().trim();
         String password2 = SignUp_EDT_password_confirm.getText().toString().trim();
 
         // Check if there are errors and return if there is
-        if(checkErrors(full_name, email, password, password2)){
+        if(checkErrors(full_name, email, password, password2, phone)){
             return;
         }
 
@@ -95,6 +109,22 @@ public class Activity_SignUp extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(Activity_SignUp.this, "Signed up successfully", Toast.LENGTH_SHORT).show();
+
+                    // Get uuid from firebase auth
+                    userId = mAuth.getCurrentUser().getUid();
+                    DocumentReference documentReference = db.collection("users").document(userId);
+                    Map<String,Object> user = new HashMap<>();
+                    user.put("full_name" , full_name);
+                    user.put("email", email);
+                    user.put("phone", phone);
+                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("pttt", "OnSuccess: user sugned up -- > "+ full_name);
+                        }
+                    });
+
+
                     Intent intent = new Intent(getApplicationContext(), Activity_Welcome.class);
                     startActivity(intent);
                     finish();
@@ -110,10 +140,10 @@ public class Activity_SignUp extends AppCompatActivity {
     }
 
     // Check if there are errors and return true if there is
-    boolean checkErrors(String full_name, String email, String password, String password2){
+    boolean checkErrors(String full_name, String email, String password, String password2, String phone){
 
         // Check if there is no empty value
-        if(checkEmpties(full_name, email, password, password2)){
+        if(checkEmpties(full_name, email, password, password2, phone)){
             return true;
         }
 
@@ -132,7 +162,7 @@ public class Activity_SignUp extends AppCompatActivity {
     }
 
     // Check if email or password was not insert
-    boolean checkEmpties(String full_name, String email, String password, String password2){
+    boolean checkEmpties(String full_name, String email, String password, String password2, String phone){
         boolean to_return = false;
 
         if (checkEmptyTxt(email, SignUp_EDT_email, "Email")){
@@ -145,6 +175,10 @@ public class Activity_SignUp extends AppCompatActivity {
             to_return = true;
         }
         if (checkEmptyTxt(full_name, SignUp_EDT_full_name, "Full name")){
+            to_return = true;
+        }
+
+        if (checkEmptyTxt(phone, SignUp_EDT_full_name, "Phone number")){
             to_return = true;
         }
 
