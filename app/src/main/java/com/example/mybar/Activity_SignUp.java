@@ -49,9 +49,11 @@ public class Activity_SignUp extends AppCompatActivity {
 
         findViews();
 
+        // Set firebase
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+        // Check if user is already logged in
         if (mAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), Activity_Main.class));
             finish();
@@ -90,8 +92,8 @@ public class Activity_SignUp extends AppCompatActivity {
         final String full_name = SignUp_EDT_full_name.getText().toString().trim();
         final String email = SignUp_EDT_email.getText().toString().trim();
         final String phone = SignUp_EDT_phone.getText().toString().trim();
-        String password = SignUp_EDT_password.getText().toString().trim();
-        String password2 = SignUp_EDT_password_confirm.getText().toString().trim();
+        final String password = SignUp_EDT_password.getText().toString().trim();
+        final String password2 = SignUp_EDT_password_confirm.getText().toString().trim();
 
         // Check if there are errors and return if there is
         if(checkErrors(full_name, email, password, password2, phone)){
