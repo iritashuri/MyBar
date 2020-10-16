@@ -17,6 +17,9 @@ public class Activity_Welcome extends AppCompatActivity {
 
     FirebaseAuth mAuth;
 
+    static Activity_Welcome activity_welcome;
+
+
 
 
 
@@ -27,6 +30,7 @@ public class Activity_Welcome extends AppCompatActivity {
 
         Welcome_BTN_signIn = findViewById(R.id.Welcome_BTN_signIn);
         Welcome_BTN_signUp = findViewById(R.id.Welcome_BTN_signUp);
+        activity_welcome = this;
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -67,6 +71,10 @@ public class Activity_Welcome extends AppCompatActivity {
         Intent intent = new Intent(Activity_Welcome.this, Activity_Main.class);
         startActivity(intent);
         finish();
+    }
+
+    public static Activity_Welcome getInstance(){
+        return activity_welcome;
     }
 
 }

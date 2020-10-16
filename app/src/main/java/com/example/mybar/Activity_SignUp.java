@@ -106,10 +106,12 @@ public class Activity_SignUp extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    Activity_Welcome.getInstance().finish();
                     Toast.makeText(Activity_SignUp.this, "Signed up successfully", Toast.LENGTH_LONG).show();
 
                     // Get uuid from firebase auth
                     userId = mAuth.getCurrentUser().getUid();
+                    // Insert details to Firestore
                     DocumentReference documentReference = db.collection("users").document(userId);
                     Map<String,Object> user = new HashMap<>();
                     user.put("full_name" , full_name);
@@ -132,10 +134,8 @@ public class Activity_SignUp extends AppCompatActivity {
                     // Stop showing progress bar
                     SignUp_PRBR_progressBar.setVisibility(View.GONE);
                 }
-
             }
         });
-
     }
 
     // Check if there are errors and return true if there is
