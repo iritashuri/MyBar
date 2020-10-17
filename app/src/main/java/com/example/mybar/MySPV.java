@@ -16,7 +16,7 @@ public class MySPV {
     private SharedPreferences prefs;
 
     public MySPV(Context context) {
-        prefs = context.getSharedPreferences("MY_SP", MODE_PRIVATE);
+        prefs = context.getSharedPreferences("MY_SPV", MODE_PRIVATE);
     }
 
     public void putString(String key, String value) {
@@ -78,5 +78,10 @@ public class MySPV {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putLong(key,  Double.doubleToRawLongBits(value));
         editor.apply();
+    }
+
+    public void deleteString(String key){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.remove(key);
     }
 }

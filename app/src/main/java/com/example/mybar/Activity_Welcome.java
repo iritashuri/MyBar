@@ -36,7 +36,7 @@ public class Activity_Welcome extends AppCompatActivity {
 
         // Check if user is already logged in
         if (mAuth.getCurrentUser() != null) {
-            openSWelcome();
+            openMain();
         }
 
         Welcome_BTN_signIn.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +67,7 @@ public class Activity_Welcome extends AppCompatActivity {
         startActivity(intent);
     }
     // Open Welcome activity
-    private void openSWelcome(){
+    private void openMain(){
         Intent intent = new Intent(Activity_Welcome.this, Activity_Main.class);
         startActivity(intent);
         finish();

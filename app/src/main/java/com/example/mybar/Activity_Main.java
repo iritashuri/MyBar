@@ -33,13 +33,14 @@ public class Activity_Main extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String userId;
-    DocumentReference documentReference;
+    private DocumentReference documentReference;
     public User current_user = new User();
 
     private MySPV mySPV;
     Gson gson = new Gson();
     final Handler handler = new Handler();
 
+    static Activity_Main activity_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class Activity_Main extends AppCompatActivity {
         setContentView(R.layout.activity__main);
 
         findViews();
+        activity_main = this;
 
         // Set firestore
         mAuth = FirebaseAuth.getInstance();
@@ -66,6 +68,8 @@ public class Activity_Main extends AppCompatActivity {
             @Override
             public void onComplete(User user) {
                 Main_TXT_Welcome.setText(user.getFull_name());
+                setUserOnSP(current_user);
+
             }
         });
 
@@ -73,9 +77,7 @@ public class Activity_Main extends AppCompatActivity {
         Main_BTN_LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.signOut();
-                openWelcome();
-                finish();
+                logOut();
             }
         });
 
@@ -88,6 +90,14 @@ public class Activity_Main extends AppCompatActivity {
         });
 
     }
+
+    private void logOut() {
+        mAuth.signOut();
+        mySPV.deleteString(MySPV.KEYS.CURRENT_USER);
+        openWelcome();
+        finish();
+    }
+
     private void openProfile(){
         Intent intent = new Intent(Activity_Main.this, Activity_Profile.class);
         startActivity(intent);
@@ -129,5 +139,10 @@ public class Activity_Main extends AppCompatActivity {
         String json = gson.toJson(user);
         mySPV.putString(MySPV.KEYS.CURRENT_USER, json);
     }
+
+    public static Activity_Main getInstance(){
+        return activity_main;
+    }
+
 
 }

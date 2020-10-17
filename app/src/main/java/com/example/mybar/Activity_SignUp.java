@@ -55,8 +55,7 @@ public class Activity_SignUp extends AppCompatActivity {
 
         // Check if user is already logged in
         if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), Activity_Main.class));
-            finish();
+            OpenMain();
         }
 
         SignUp_BTN_SignUp.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +102,7 @@ public class Activity_SignUp extends AppCompatActivity {
         // Show progress bar
         SignUp_PRBR_progressBar.setVisibility(View.VISIBLE);
 
-        // Register the user in firebase
+        // Register the user in firebase Auth and Firestore
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -125,19 +124,23 @@ public class Activity_SignUp extends AppCompatActivity {
                             Log.d("pttt", "OnSuccess: user sugned up -- > "+ full_name);
                         }
                     });
-
-
-                    Intent intent = new Intent(getApplicationContext(), Activity_Main.class);
-                    startActivity(intent);
-                    finish();
+                    OpenMain();
                 } else {
-                    // Show err message and set progress bar to invisible
+                    //  err message and set progress bar to invisible
                     Toast.makeText(Activity_SignUp.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     // Stop showing progress bar
                     SignUp_PRBR_progressBar.setVisibility(View.GONE);
                 }
             }
         });
+    }
+    // Open main activity
+    private void OpenMain() {
+        // Finish welcome activity
+        Activity_Welcome.getInstance().finish();
+        Intent intent = new Intent(getApplicationContext(), Activity_Main.class);
+        startActivity(intent);
+        finish();
     }
 
     // Check if there are errors and return true if there is

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_UpdateUser"
+    android:background="@color/colorBackground">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="60dp"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/user" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:background="@color/cardview_light_background"
+            android:layout_marginBottom="50dp"
+            android:paddingBottom="30dp"
+            android:paddingTop="30dp">
+
+
+        <EditText
+
+            android:id="@+id/UpdateUser_EDT_full_name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="20dp"
+            />
+
+        <EditText
+
+            android:id="@+id/UpdateUser_EDT_email"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="20dp"
+            />
+
+        <EditText
+
+            android:id="@+id/UpdateUser_EDT_phone"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="phone number"
+            android:inputType="textPhonetic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="20dp"
+            />
+
+        <EditText
+
+            android:id="@+id/UpdateUser_EDT_password"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="20dp"
+            />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/UpdateUser_BTN_SignUp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:background="@drawable/mybtn"
+            android:layout_marginBottom="30dp"
+            android:text="Update"
+            android:shadowColor="@color/colorLightYellow"
+            android:shadowDx="@integer/google_play_services_version"
+            android:shadowDy="@integer/google_play_services_version"
+            />
+
+        <ProgressBar
+            android:id="@+id/UpdateUser_PRBR_progressBar"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:progressTint="#EFC957"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/UpdateUser_IMG_logo"
+        android:layout_width="94dp"
+        android:layout_height="136dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/cocktail"
+        android:rotation="@integer/google_play_services_version"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

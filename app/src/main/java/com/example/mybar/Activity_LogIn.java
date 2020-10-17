@@ -145,8 +145,6 @@ public class Activity_LogIn extends AppCompatActivity {
         return false;
     }
 
-
-
     private void openSignUp() {
         Intent intent = new Intent(getApplicationContext(), Activity_SignUp.class);
         startActivity(intent);
