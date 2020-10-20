@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,6 +29,7 @@ public class Activity_UpdateUser extends AppCompatActivity {
     private EditText UpdateUser_EDT_phone;
     private EditText UpdateUser_EDT_password;
     private Button UpdateUser_BTN_SignUp;
+    private ProgressBar UpdateUser_PRBR_progressBar;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -76,6 +78,7 @@ public class Activity_UpdateUser extends AppCompatActivity {
         UpdateUser_EDT_phone = findViewById(R.id.UpdateUser_EDT_phone);
         UpdateUser_EDT_password = findViewById(R.id.UpdateUser_EDT_password);
         UpdateUser_BTN_SignUp = findViewById(R.id.UpdateUser_BTN_SignUp);
+        UpdateUser_PRBR_progressBar = findViewById(R.id.UpdateUser_PRBR_progressBar);
     }
 
     // Set current_user with information from SP
@@ -88,6 +91,8 @@ public class Activity_UpdateUser extends AppCompatActivity {
         String new_email = UpdateUser_EDT_email.getText().toString().trim();
         String new_phone = UpdateUser_EDT_phone.getText().toString().trim();
         String new_password = UpdateUser_EDT_password.getText().toString().trim();
+        // Show progress bar
+        UpdateUser_PRBR_progressBar.setVisibility(View.VISIBLE);
 
         boolean valid_params = true;
         boolean update_password = true;
@@ -112,6 +117,8 @@ public class Activity_UpdateUser extends AppCompatActivity {
         else if(new_password.length() < 6) {
             Toast.makeText(Activity_UpdateUser.this, "Password need to contain at least 6 characters", Toast.LENGTH_LONG).show();
             valid_params = false;
+            // Stop showing progress bar
+            UpdateUser_PRBR_progressBar.setVisibility(View.GONE);
         }
 
         if(valid_params){
@@ -141,6 +148,7 @@ public class Activity_UpdateUser extends AppCompatActivity {
         user.put("full_name" , new_name);
         user.put("email", new_email);
         user.put("phone", new_phone);
+        user.put("drinks", current_user.getDrinks());
         documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
@@ -162,6 +170,8 @@ public class Activity_UpdateUser extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(Activity_UpdateUser.this, "Error", Toast.LENGTH_LONG).show();
                 Log.w("pttt", "Error adding document", e);
+                // Stop showing progress bar
+                UpdateUser_PRBR_progressBar.setVisibility(View.GONE);
             }
         });
     }

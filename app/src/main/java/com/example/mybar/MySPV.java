@@ -10,7 +10,7 @@ public class MySPV {
 
 
     public interface KEYS {
-        public static final String CURRENT_USER = "CURRENT_WINNER";
+        public static final String CURRENT_USER = "CURRENT_USER";
     }
 
     private SharedPreferences prefs;

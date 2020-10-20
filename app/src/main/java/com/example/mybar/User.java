@@ -20,6 +20,7 @@ public class User {
     private String full_name;
     private String email;
     private String phone;
+    private int drinks = 0;
 
 
     public User() {
@@ -30,6 +31,15 @@ public class User {
         this.full_name = full_name;
         this.email = email;
         this.phone = phone;
+    }
+
+    public int getDrinks() {
+        return drinks;
+    }
+
+    public User setDrinks(int drinks) {
+        this.drinks = drinks;
+        return this;
     }
 
     public String getFull_name() {

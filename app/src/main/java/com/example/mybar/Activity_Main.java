@@ -38,7 +38,6 @@ public class Activity_Main extends AppCompatActivity {
 
     private MySPV mySPV;
     Gson gson = new Gson();
-    final Handler handler = new Handler();
 
     static Activity_Main activity_main;
 
@@ -50,7 +49,7 @@ public class Activity_Main extends AppCompatActivity {
         findViews();
         activity_main = this;
 
-        // Set firestore
+        // Set Firestore
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
@@ -89,6 +88,13 @@ public class Activity_Main extends AppCompatActivity {
             }
         });
 
+        Main_BTN_Daily_deals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDeals();
+            }
+        });
+
     }
 
     private void logOut() {
@@ -108,6 +114,12 @@ public class Activity_Main extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    private void openDeals() {
+        Intent intent = new Intent(Activity_Main.this, Activity_Deals.class);
+        startActivity(intent);
+    }
+
 
     private void findViews(){
         Main_TXT_Welcome = findViewById(R.id.Main_TXT_Welcome);

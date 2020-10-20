@@ -77,4 +77,5 @@ public class Activity_Welcome extends AppCompatActivity {
         return activity_welcome;
     }
 
+
 }

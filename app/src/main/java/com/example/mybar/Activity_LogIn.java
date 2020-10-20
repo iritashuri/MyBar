@@ -29,9 +29,11 @@ public class Activity_LogIn extends AppCompatActivity {
     private EditText LogIn_EDT_email;
     private EditText LogIn_EDT_password;
     private ProgressBar SignIn_PRBR_progressBar;
-    private FirebaseAuth mAuth;
     private TextView SignIn_TXT_signUp;
     private TextView SignIn_TXT_forgotPassword;
+
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -118,6 +118,7 @@ public class Activity_SignUp extends AppCompatActivity {
                     user.put("full_name" , full_name);
                     user.put("email", email);
                     user.put("phone", phone);
+                    user.put("drinks", 0);
                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
