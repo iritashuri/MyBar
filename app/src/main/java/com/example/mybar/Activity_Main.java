@@ -29,6 +29,7 @@ public class Activity_Main extends AppCompatActivity {
     private Button Main_BTN_Daily_deals;
     private Button Main_BTN_LogOut;
     private CardView Main_Card_user;
+    private Button Main_BTN_Menu;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -95,6 +96,13 @@ public class Activity_Main extends AppCompatActivity {
             }
         });
 
+        Main_BTN_Menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMenu();
+            }
+        });
+
     }
 
     private void logOut() {
@@ -102,6 +110,11 @@ public class Activity_Main extends AppCompatActivity {
         mySPV.deleteString(MySPV.KEYS.CURRENT_USER);
         openWelcome();
         finish();
+    }
+
+    private void openMenu() {
+        Intent intent = new Intent(Activity_Main.this, Activity_Menu.class);
+        startActivity(intent);
     }
 
     private void openProfile(){
@@ -127,6 +140,7 @@ public class Activity_Main extends AppCompatActivity {
         Main_BTN_Daily_deals = findViewById(R.id.Main_BTN_Daily_deals);
         Main_BTN_LogOut = findViewById(R.id.Main_BTN_LogOut);
         Main_Card_user = findViewById(R.id.Main_Card_user);
+        Main_BTN_Menu = findViewById(R.id.Main_BTN_Menu);
     }
 
     // Set current_user With data from the firebase

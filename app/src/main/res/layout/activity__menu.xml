@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_Menu"
+    android:background="@color/colorBackground">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="30dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menu"
+            android:textSize="35dp"
+            android:textColor="@color/colorDarkText"
+            android:textStyle="bold"
+            />
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp">
+
+            <TableRow
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_height="185dp"
+                >
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:background="@drawable/mybtnyellow"
+                    android:layout_marginRight="20dp"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="10dp"
+                    >
+                    <Button
+                        android:id="@+id/Menu_BTN_cocktails"
+                        android:layout_width="110dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/cocktail_menu"
+                        android:layout_gravity="center"
+                        android:textColor="#CC3636"
+                        android:textSize="20dp"
+                        />
+
+                    <TextView
+                        android:text="Cocktails"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:textColor="#CC3636"
+                        android:textSize="15dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:background="@drawable/mybtnyellow"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="10dp"
+                    >
+                    <Button
+                        android:id="@+id/Menu_BTN_Wines"
+                        android:layout_width="110dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/wine"
+                        android:layout_gravity="center"
+                        android:textColor="#CC3636"
+                        android:textSize="20dp"/>
+                    <TextView
+                        android:text="Wines"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:textColor="#CC3636"
+                        android:textSize="15dp"
+                        />
+                </LinearLayout>
+            </TableRow>
+
+
+            <TableRow
+                android:layout_height="185dp"
+                android:gravity="center"
+                android:padding="10dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:background="@drawable/mybtnyellow"
+                    android:layout_marginRight="20dp"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="10dp"
+                    >
+                    <Button
+                        android:id="@+id/Menu_BTN_Daily_Beers"
+                        android:layout_width="110dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/beer"
+                        android:layout_gravity="center"
+                        android:textColor="#CC3636"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:text="Beers"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:textColor="#CC3636"
+                        android:textSize="15dp"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:background="@drawable/mybtnyellow"
+                    android:paddingTop="10dp">
+
+                    <Button
+                        android:id="@+id/Menu_BTN_Chasers"
+                        android:layout_width="110dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/chaser"
+                        android:layout_gravity="center"
+                        android:textColor="#CC3636"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:text="Chasers"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:textColor="#CC3636"
+                        android:textSize="15dp"
+                        />
+                </LinearLayout>
+
+            </TableRow>
+            <TableRow
+                android:layout_height="185dp"
+                android:gravity="center"
+                android:padding="10dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:background="@drawable/mybtnyellow"
+                    android:layout_marginRight="20dp"
+                    android:paddingTop="10dp"
+                    >
+
+                    <Button
+                        android:id="@+id/Menu_BTN_Daily_SoftDrinks"
+                        android:layout_width="110dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/juice"
+                        android:layout_gravity="center"
+                        android:textColor="#CC3636"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:text="Soft Drinks"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:textColor="#CC3636"
+                        android:textSize="15dp"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:background="@drawable/mybtnyellow"
+                    android:paddingTop="10dp">
+
+                    <Button
+                        android:id="@+id/Menu_BTN_Food"
+                        android:layout_width="110dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/pizza"
+                        android:layout_gravity="center"
+                        android:textColor="#CC3636"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:text="Food"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:textColor="#CC3636"
+                        android:textSize="15dp"
+                        />
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/Menu_IMG_logo"
+        android:layout_width="94dp"
+        android:layout_height="136dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/cocktail"
+        android:rotation="@android:integer/config_mediumAnimTime"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

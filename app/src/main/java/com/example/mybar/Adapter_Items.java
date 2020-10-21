@@ -12,22 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Adapter_Deals extends RecyclerView.Adapter<Adapter_Deals.ViewHolder> {
-    private ArrayList<Deal> mData = new ArrayList<>();
+public class Adapter_Items extends RecyclerView.Adapter<Adapter_Items.ViewHolder> {
+    private ArrayList<Item> mData = new ArrayList<>();
     private LayoutInflater mInflater;
     private Context context;
 
-    public DealItemClickListener dealItemClickListener;
-
     // data is passed into the constructor
-    Adapter_Deals(Context context, ArrayList<Deal> data) {
+    Adapter_Items(Context context, ArrayList<Item> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.context = context;
-    }
-
-    public void setClickListeners(DealItemClickListener dealItemClickListener) {
-        this.dealItemClickListener = dealItemClickListener;
     }
 
     @NonNull
@@ -41,9 +35,9 @@ public class Adapter_Deals extends RecyclerView.Adapter<Adapter_Deals.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // binds the data to the TextView in each row
         Log.d("pttt", "position = " + position);
-        Deal deal = mData.get(position);
-        holder.dealView_TXT_description.setText("" + deal.getDescription());
-        holder.dealView_TXT_price.setText(deal.getPrice() + " Nis");
+        Item item = mData.get(position);
+        holder.dealView_TXT_description.setText("" + item.getDescription());
+        holder.dealView_TXT_price.setText(item.getPrice() + " Nis");
 
     }
 
@@ -53,7 +47,7 @@ public class Adapter_Deals extends RecyclerView.Adapter<Adapter_Deals.ViewHolder
     }
 
     // convenience method for getting data at click position
-    Deal getItem(int position) {
+    Item getItem(int position) {
         return mData.get(position);
     }
 
@@ -64,18 +58,7 @@ public class Adapter_Deals extends RecyclerView.Adapter<Adapter_Deals.ViewHolder
             super(itemView);
             dealView_TXT_description = itemView.findViewById(R.id.dealView_TXT_description);
             dealView_TXT_price = itemView.findViewById(R.id.dealView_TXT_price);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (dealItemClickListener != null) {
-                        dealItemClickListener.itemClicked(getItem(getAdapterPosition()), getAdapterPosition());
-                    }
-                }
-            });
         }
     }
-    public interface DealItemClickListener {
-        void itemClicked(Deal exercise, int position);
-    }
+
 }
