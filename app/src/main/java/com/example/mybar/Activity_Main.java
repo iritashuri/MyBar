@@ -4,11 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -96,10 +93,19 @@ public class Activity_Main extends AppCompatActivity {
             }
         });
 
+        // Open menu
         Main_BTN_Menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openMenu();
+            }
+        });
+
+        // Open orders history
+        Main_BTN_My_Orders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openOrdersHistory();
             }
         });
 
@@ -111,6 +117,12 @@ public class Activity_Main extends AppCompatActivity {
         openWelcome();
         finish();
     }
+
+    private void openOrdersHistory() {
+        Intent intent = new Intent(Activity_Main.this, Activity_OrdersHistory.class);
+        startActivity(intent);
+    }
+
 
     private void openMenu() {
         Intent intent = new Intent(Activity_Main.this, Activity_Menu.class);
@@ -164,6 +176,8 @@ public class Activity_Main extends AppCompatActivity {
     private void setUserOnSP(User user) {
         String json = gson.toJson(user);
         mySPV.putString(MySPV.KEYS.CURRENT_USER, json);
+        // Set user id
+        mySPV.putString(MySPV.KEYS.CURRENT_USER_ID, userId);
     }
 
     public static Activity_Main getInstance(){

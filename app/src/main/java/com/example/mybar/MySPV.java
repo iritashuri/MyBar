@@ -11,7 +11,10 @@ public class MySPV {
 
     public interface KEYS {
         public static final String CURRENT_USER = "CURRENT_USER";
-        public String CATEGORY = "CATEGORY";
+        public static final String CURRENT_USER_ID = "CURRENT_USER_ID";
+        public static final String CATEGORY = "CATEGORY";
+        public static final String CURRENT_ORDER = "CURRENT_ORDER";
+
     }
 
     private SharedPreferences prefs;

@@ -105,7 +105,7 @@ public class Activity_Menu extends AppCompatActivity {
         // Set category on SP
         mySPV.putString(MySPV.KEYS.CATEGORY, category);
 
-        // open ItemCategory Activity
+        // Open ItemCategory Activity
         Intent intent = new Intent(Activity_Menu.this, Activity_ItemCategory.class);
         startActivity(intent);
 
