@@ -2,63 +2,84 @@ package com.example.mybar;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Fragment_OrderDetails#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class Fragment_OrderDetails extends Fragment {
+    private OrderCallBack orderCallBack;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private View view;
+    private RecyclerView Order_Details_RCV_description;
+    private TextView Order_Details_RCV_totalPrice;
 
     public Fragment_OrderDetails() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment_OrderDetails.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Fragment_OrderDetails newInstance(String param1, String param2) {
+    public void setListCallBack(OrderCallBack orderCallBack) {
+        this.orderCallBack = orderCallBack;
+    }
+
+    public static Fragment_OrderDetails newInstance() {
         Fragment_OrderDetails fragment = new Fragment_OrderDetails();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__order_details, container, false);
+        if(view == null) {
+            view = inflater.inflate(R.layout.fragment__order_details, container, false);
+        }
+        findViews(view);
+
+        if(orderCallBack != null){
+            orderCallBack.GetOrderFromSP();
+        }
+        return view;
+    }
+
+    private void findViews(View view) {
+        Order_Details_RCV_description = view.findViewById(R.id.Order_Details_RCV_description);
+        Order_Details_RCV_totalPrice = view.findViewById(R.id.Order_Details_RCV_totalPrice);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    public void setOrderDetails(Order order){
+        ArrayList<Item> items = order.getItem_list();
+        Adapter_Items adapter_items = new Adapter_Items(getActivity(), items);
+        // Display Items
+        Order_Details_RCV_description.setLayoutManager(new LinearLayoutManager(getActivity()));
+        Order_Details_RCV_description.setAdapter(adapter_items);
+
+        //Display total_price
+        Order_Details_RCV_totalPrice.setText("Total price: " + order.getTotal_price() + " Nis");
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+        }
     }
 }

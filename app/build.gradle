@@ -13,6 +13,14 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        // Read the API key from ./secure.properties into R.string.maps_api_key
+        def secureProps = new Properties()
+        if (file("../secure.properties").exists()) {
+            file("../secure.properties")?.withInputStream { secureProps.load(it) }
+        }
+        resValue "string", "maps_api_key", (secureProps.getProperty("MAPS_API_KEY") ?: "")
     }
 
     buildTypes {
@@ -63,10 +71,4 @@ dependencies {
     debugImplementation 'com.amitshekhar.android:debug-db-encrypt:1.0.6'
     // Maps
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
-
-
-
-
-
-
 }

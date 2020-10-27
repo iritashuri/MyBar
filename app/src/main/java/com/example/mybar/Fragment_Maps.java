@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +63,13 @@ public class Fragment_Maps extends Fragment implements OnMapReadyCallback {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_maps, container, false);
+        try {
+            view = inflater.inflate(R.layout.fragment_maps, container, false);            // ... rest of body of onCreateView() ...
+        } catch (Exception e) {
+            Log.e("Erryyy", "onCreateView", e);
+            throw e;
+        }
+
 
         if (orderCallBack != null) {
             orderCallBack.GetOrderFromSP();

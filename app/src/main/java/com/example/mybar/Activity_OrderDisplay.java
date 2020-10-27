@@ -35,20 +35,24 @@ public class Activity_OrderDisplay extends AppCompatActivity implements OrderCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__order_display);
 
+        // Set SP
+        mySPV = new MySPV(this);
+
         findViews();
-        initViews();
 
         // Init fragments
         fragment_maps = Fragment_Maps.newInstance();
-        //fragment_orderDetails = Fragment_OrderDetails.newInstance();
+        fragment_orderDetails = Fragment_OrderDetails.newInstance();
 
 
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.add(R.id.OrderDisplay_LAY_content, fragment_maps);
         t.add(R.id.OrderDisplay_LAY_content, fragment_orderDetails);
         t.commit();
-
+        fragment_maps.setListCallBack(this);
         getSupportFragmentManager().beginTransaction().hide(fragment_maps).commit();
+
+        initViews();
 
     }
 
@@ -75,11 +79,13 @@ public class Activity_OrderDisplay extends AppCompatActivity implements OrderCal
 
     }
 
+    // Display Order details and hide map
     private void showDetails() {
         getSupportFragmentManager().beginTransaction().hide(fragment_maps).commit();
         getSupportFragmentManager().beginTransaction().show(fragment_orderDetails).commit();
     }
 
+    // Display Order location in map and hide deptails
     private void showMap() {
         getSupportFragmentManager().beginTransaction().hide(fragment_orderDetails).commit();
         getSupportFragmentManager().beginTransaction().show(fragment_maps).commit();
@@ -89,7 +95,7 @@ public class Activity_OrderDisplay extends AppCompatActivity implements OrderCal
     protected void onStart() {
         super.onStart();
         // Set fragments
-        //fragment_list.setTable(tops);
+        fragment_orderDetails.setOrderDetails(order);
         fragment_maps.setOrder(order);
     }
 
@@ -100,26 +106,7 @@ public class Activity_OrderDisplay extends AppCompatActivity implements OrderCal
         order = gson.fromJson(json, Order.class);
 
         if (order == null){
-            //Toast.makeText(Activity_OrdersHistory.this, "order was not found", Toast.LENGTH_SHORT).show();
-            Log.d("pttt", "order was not found");
+            Log.d("pttt", "Order was not found");
         }
     }
 }
-
-/*
-*
-    private void initFragments() {
-        // Init list
-        fragment_list = Fragment_List.newInstance();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.TOPTEN_TBL_TopTen,fragment_list);
-        transaction.commit();
-        fragment_list.setListCallBack(this);
-
-        // Init map
-        fragment_maps = Fragment_Maps.newInstance();
-        FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
-        transaction2.replace(R.id.TOPTEN_Map_TopTen,fragment_maps);
-        transaction2.commit();
-    }
-    }*/

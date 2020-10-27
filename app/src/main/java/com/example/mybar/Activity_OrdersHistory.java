@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -102,6 +103,8 @@ public class Activity_OrdersHistory extends AppCompatActivity {
     };
 
     private void OpenOrder() {
+        Intent intent = new Intent(getApplicationContext(), Activity_OrderDisplay.class);
+        startActivity(intent);
     }
 
     private void findViews() {
