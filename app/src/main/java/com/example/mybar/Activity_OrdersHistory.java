@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,7 +22,8 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 public class Activity_OrdersHistory extends AppCompatActivity {
-    RecyclerView OrdersHistory_LST_dealsList;
+    private RecyclerView OrdersHistory_LST_dealsList;
+    private Button OrdersHistory_BTN_back;
     private FirebaseFirestore db;
 
     private MySPV mySPV;
@@ -48,6 +51,13 @@ public class Activity_OrdersHistory extends AppCompatActivity {
 
         showItems();
 
+        // Go back and close activity
+        OrdersHistory_BTN_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
@@ -109,5 +119,6 @@ public class Activity_OrdersHistory extends AppCompatActivity {
 
     private void findViews() {
         OrdersHistory_LST_dealsList = findViewById(R.id.OrdersHistory_LST_dealsList);
+        OrdersHistory_BTN_back = findViewById(R.id.OrdersHistory_BTN_back);
     }
 }

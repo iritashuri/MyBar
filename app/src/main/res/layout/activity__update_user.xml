@@ -13,8 +13,16 @@
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingTop="60dp"
+        android:paddingTop="20dp"
         >
+        <Button
+            android:id="@+id/UpdateUser_BTN_back"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back"
+            android:layout_gravity="left"
+            android:layout_marginBottom="30dp"
+            />
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -32,11 +40,10 @@
 
 
         <EditText
-
             android:id="@+id/UpdateUser_EDT_full_name"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="Full Name"
+            android:hint="@string/full_name"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +55,7 @@
             android:id="@+id/UpdateUser_EDT_email"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="email"
+            android:hint="@string/email2"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +67,7 @@
             android:id="@+id/UpdateUser_EDT_phone"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="phone number"
+            android:hint="@string/phone_number2"
             android:inputType="textPhonetic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +79,7 @@
             android:id="@+id/UpdateUser_EDT_password"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="password"
+            android:hint="@string/password2"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +95,7 @@
             android:textSize="20dp"
             android:background="@drawable/mybtn"
             android:layout_marginBottom="30dp"
-            android:text="Update"
+            android:text="@string/update"
             android:shadowColor="@color/colorLightYellow"
             android:shadowDx="@integer/google_play_services_version"
             android:shadowDy="@integer/google_play_services_version"

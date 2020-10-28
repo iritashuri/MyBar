@@ -11,4 +11,36 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="log_in">Log In</string>
+    <string name="new_here_sign_up">New here? Sign Up</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="welcome">Welcome</string>
+    <string name="my_profile">My Profile</string>
+    <string name="orders_history">Orders History</string>
+    <string name="cards">Cards</string>
+    <string name="our_deals">Our Deals</string>
+    <string name="menu">Menu</string>
+    <string name="log_out">Log Out</string>
+    <string name="location">Location</string>
+    <string name="details">Details</string>
+    <string name="name">Name</string>
+    <string name="email2">Email</string>
+    <string name="phone_number">phone number</string>
+    <string name="edit_details">Edit details</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirmation_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account_log_in">Already have an account? Log In</string>
+    <string name="phone_number2">Phone Number</string>
+    <string name="password2">Password</string>
+    <string name="update">Update</string>
+    <string name="welcome_to_mybar">Welcome to MyBar!</string>
+    <string name="sign_in">Sign In</string>
+    <string name="free_drinks_number">free drinks number</string>
+    <string name="drinks_lefted">drinks lefted</string>
+    <string name="order_description">Order Description</string>
+    <string name="total_price">Total Price</string>
 </resources>

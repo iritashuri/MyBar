@@ -30,6 +30,7 @@ public class Activity_UpdateUser extends AppCompatActivity {
     private EditText UpdateUser_EDT_password;
     private Button UpdateUser_BTN_SignUp;
     private ProgressBar UpdateUser_PRBR_progressBar;
+    private Button UpdateUser_BTN_back;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -70,6 +71,14 @@ public class Activity_UpdateUser extends AppCompatActivity {
             }
         });
 
+        // Go back and close activity
+        UpdateUser_BTN_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void findViews() {
@@ -79,6 +88,7 @@ public class Activity_UpdateUser extends AppCompatActivity {
         UpdateUser_EDT_password = findViewById(R.id.UpdateUser_EDT_password);
         UpdateUser_BTN_SignUp = findViewById(R.id.UpdateUser_BTN_SignUp);
         UpdateUser_PRBR_progressBar = findViewById(R.id.UpdateUser_PRBR_progressBar);
+        UpdateUser_BTN_back = findViewById(R.id.UpdateUser_BTN_back);
     }
 
     // Set current_user with information from SP

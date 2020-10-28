@@ -20,6 +20,7 @@ public class Activity_Menu extends AppCompatActivity {
     private Button Menu_BTN_Chasers;
     private Button Menu_BTN_Daily_SoftDrinks;
     private Button Menu_BTN_Food;
+    private Button Menu_BTN_back;
 
     // Set FirebaseAuth
     private FirebaseFirestore db;
@@ -89,6 +90,14 @@ public class Activity_Menu extends AppCompatActivity {
             }
         });
 
+        // Go back and log out
+        Menu_BTN_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
 
     }
@@ -99,6 +108,7 @@ public class Activity_Menu extends AppCompatActivity {
         Menu_BTN_Chasers = findViewById(R.id.Menu_BTN_Chasers);
         Menu_BTN_Daily_SoftDrinks = findViewById(R.id.Menu_BTN_Daily_SoftDrinks);
         Menu_BTN_Food = findViewById(R.id.Menu_BTN_Food);
+        Menu_BTN_back = findViewById(R.id.Menu_BTN_back);
     }
 
     private void openItemCategory(String category) {

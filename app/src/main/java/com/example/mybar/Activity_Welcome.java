@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
@@ -19,10 +21,6 @@ public class Activity_Welcome extends AppCompatActivity {
 
     static Activity_Welcome activity_welcome;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +31,12 @@ public class Activity_Welcome extends AppCompatActivity {
         activity_welcome = this;
 
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+
 
         // Check if user is already logged in
-        if (mAuth.getCurrentUser() != null) {
+        if (user != null) {
+            Log.d("login", "" + mAuth.getCurrentUser().getEmail());
             openMain();
         }
 

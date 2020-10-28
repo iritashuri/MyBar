@@ -9,7 +9,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/colorBackground">
+        <Button
+            android:id="@+id/OrderDisplay_BTN_back"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp"/>
 
         <FrameLayout
             android:id="@+id/OrderDisplay_LAY_content"
@@ -17,7 +25,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:background="#CACACA" />
+            android:background="@color/colorBackground" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,7 +39,7 @@
                 android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/mybtnyellow"
-                android:text="See in map" />
+                android:text="@string/location" />
 
             <Button
                 android:id="@+id/OrderDisplay_BTN_Details"
@@ -40,7 +48,7 @@
                 android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/mybtnyellow"
-                android:text="Details" />
+                android:text="@string/details" />
 
         </LinearLayout>
 

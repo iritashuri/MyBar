@@ -22,6 +22,7 @@ public class Activity_OrderDisplay extends AppCompatActivity implements OrderCal
     //Define Buttons
     private Button OrderDisplay_BTN_Map;
     private Button OrderDisplay_BTN_Details;
+    private Button OrderDisplay_BTN_back;
 
     //Define fragments
     private Fragment_OrderDetails fragment_orderDetails;
@@ -54,11 +55,20 @@ public class Activity_OrderDisplay extends AppCompatActivity implements OrderCal
 
         initViews();
 
+        // Go back and close activity
+        OrderDisplay_BTN_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void findViews() {
         OrderDisplay_BTN_Details = findViewById(R.id.OrderDisplay_BTN_Details);
         OrderDisplay_BTN_Map = findViewById(R.id.OrderDisplay_BTN_Map);
+        OrderDisplay_BTN_back = findViewById(R.id.OrderDisplay_BTN_back);
     }
 
     private void initViews(){

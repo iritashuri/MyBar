@@ -6,23 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".Activity_LogIn"
     android:background="@color/colorBackground">
-
+    <Button
+        android:id="@+id/LogIn_BTN_back"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:background="@drawable/back"
+        android:layout_gravity="left"
+        android:layout_marginTop="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingTop="150dp"
+        android:paddingTop="140dp"
         >
 
-
       <EditText
-
           android:id="@+id/LogIn_EDT_email"
           android:layout_width="250dp"
           android:layout_height="wrap_content"
-          android:hint="email"
+          android:hint="@string/email2"
           android:inputType="textEmailAddress"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +37,7 @@
             android:id="@+id/LogIn_EDT_password"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="password"
+            android:hint="@string/password2"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,14 +52,14 @@
             android:textSize="20dp"
             android:background="@drawable/mybtn"
             android:layout_marginBottom="40dp"
-            android:text="Log In"
+            android:text="@string/log_in"
             />
 
         <TextView
             android:id="@+id/SignIn_TXT_signUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New here? Sign Up"
+            android:text="@string/new_here_sign_up"
             android:textColor="@color/colorDarkText"
             />
 
@@ -63,7 +67,7 @@
             android:id="@+id/SignIn_TXT_forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forgot password?"
+            android:text="@string/forgot_password"
             android:layout_marginTop="5dp"
             android:textColor="@color/colorDarkText"
             android:textStyle="bold"

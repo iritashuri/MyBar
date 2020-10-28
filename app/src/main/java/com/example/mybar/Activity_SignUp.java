@@ -35,6 +35,7 @@ public class Activity_SignUp extends AppCompatActivity {
     private Button SignUp_BTN_SignUp;
     private ProgressBar SignUp_PRBR_progressBar;
     private TextView SignUp_TXT_logIn;
+    private Button SignUp_BTN_back;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -72,6 +73,14 @@ public class Activity_SignUp extends AppCompatActivity {
             }
         });
 
+        // Gi back and close activity
+        SignUp_BTN_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void findViews(){
@@ -83,6 +92,7 @@ public class Activity_SignUp extends AppCompatActivity {
         SignUp_BTN_SignUp = findViewById(R.id.SignUp_BTN_SignUp);
         SignUp_PRBR_progressBar = findViewById(R.id.SignUp_PRBR_progressBar);
         SignUp_TXT_logIn = findViewById(R.id.SignUp_TXT_logIn);
+        SignUp_BTN_back = findViewById(R.id.SignUp_BTN_back);
     }
 
     // Insert new user details

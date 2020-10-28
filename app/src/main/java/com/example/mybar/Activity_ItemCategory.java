@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,7 +21,9 @@ import java.util.ArrayList;
 
 public class Activity_ItemCategory extends AppCompatActivity {
 
-    RecyclerView UpdateDeals_LST_dealsList;
+    RecyclerView ItemCategory_LST_dealsList;
+    Button ItemCategory_BTN_back;
+
     private FirebaseFirestore db;
 
     private MySPV mySPV;
@@ -41,6 +45,14 @@ public class Activity_ItemCategory extends AppCompatActivity {
         Gson json = new Gson();
 
         showItems();
+
+        // Go back
+        ItemCategory_BTN_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private String getCategory(){
@@ -66,8 +78,8 @@ public class Activity_ItemCategory extends AppCompatActivity {
                             }
                             // Display Items
                             Adapter_Items adapter_items = new Adapter_Items(Activity_ItemCategory.this, items);
-                            UpdateDeals_LST_dealsList.setLayoutManager(new LinearLayoutManager(Activity_ItemCategory.this));
-                            UpdateDeals_LST_dealsList.setAdapter(adapter_items);
+                            ItemCategory_LST_dealsList.setLayoutManager(new LinearLayoutManager(Activity_ItemCategory.this));
+                            ItemCategory_LST_dealsList.setAdapter(adapter_items);
                         } else {
                             Log.w("pttt", "Error getting documents.", task.getException());
                         }
@@ -76,7 +88,8 @@ public class Activity_ItemCategory extends AppCompatActivity {
     }
 
     private void findViews() {
-        UpdateDeals_LST_dealsList = findViewById(R.id.UpdateDeals_LST_dealsList);
+        ItemCategory_LST_dealsList = findViewById(R.id.ItemCategory_LST_dealsList);
+        ItemCategory_BTN_back = findViewById(R.id.ItemCategory_BTN_back);
     }
 
 

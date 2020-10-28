@@ -13,6 +13,14 @@
         android:orientation="vertical"
         android:paddingTop="30dp">
 
+        <Button
+            android:id="@+id/Profile_BTN_back"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back"
+            android:layout_gravity="left"
+            />
+
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -23,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="Name"
+            android:text="@string/name"
             android:textColor="@color/colorDarkText"
             android:textSize="40dp" />
 
@@ -31,7 +39,7 @@
         android:id="@+id/Profile_TXT_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="@string/email2"
         android:textSize="25dp"
         android:textColor="@color/colorDarkText"
         android:layout_marginBottom="10dp"
@@ -40,7 +48,7 @@
             android:id="@+id/Profile_TXT_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="phone Number"
+            android:text="@string/phone_number"
             android:textSize="25dp"
             android:textColor="@color/colorDarkText"
             android:layout_marginBottom="75dp"
@@ -53,7 +61,7 @@
             android:textSize="15dp"
             android:background="@drawable/mybtn"
             android:layout_marginBottom="50dp"
-            android:text="Edit details"
+            android:text="@string/edit_details"
             />
 
         <Button
@@ -64,7 +72,7 @@
             android:textSize="10dp"
             android:background="@drawable/mybtn"
             android:layout_marginBottom="30dp"
-            android:text="Log Out"
+            android:text="@string/log_out"
             />
 
         <Button
@@ -74,7 +82,7 @@
             android:textColor="#ffffff"
             android:textSize="7dp"
             android:background="@drawable/mybtn"
-            android:text="Delete Account"
+            android:text="@string/delete_account"
             android:layout_marginBottom="30dp"
             />
 
@@ -89,8 +97,4 @@
             app:srcCompat="@drawable/cocktail" />
 
     </LinearLayout>
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

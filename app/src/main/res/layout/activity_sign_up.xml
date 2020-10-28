@@ -13,15 +13,22 @@
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingTop="60dp"
+        android:paddingTop="20dp"
         >
+        <Button
+            android:id="@+id/SignUp_BTN_back"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back"
+            android:layout_gravity="left"
+            android:layout_marginBottom="30dp"
+            />
 
         <EditText
-
             android:id="@+id/SignUp_EDT_full_name"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="Full Name"
+            android:hint="@string/full_name"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,11 +36,10 @@
             />
 
         <EditText
-
             android:id="@+id/SignUp_EDT_email"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="email"
+            android:hint="@string/email2"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,11 +47,10 @@
             />
 
         <EditText
-
             android:id="@+id/SignUp_EDT_phone"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="phone number"
+            android:hint="@string/phone_number2"
             android:inputType="textPhonetic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,11 +58,10 @@
             />
 
         <EditText
-
             android:id="@+id/SignUp_EDT_password"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="password"
+            android:hint="@string/password2"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,27 +72,11 @@
             android:id="@+id/SignUp_EDT_password_confirm"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="confirmation password"
+            android:hint="@string/confirmation_password"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="20dp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="If a friend told you about us:"
-            />
-        <EditText
-            android:id="@+id/SignUp_EDT_firends_detail"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:hint="friend email"
-            android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="40dp"
             />
 
         <Button
@@ -99,7 +87,7 @@
             android:textSize="20dp"
             android:background="@drawable/mybtn"
             android:layout_marginBottom="30dp"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             />
 
 
@@ -107,7 +95,7 @@
             android:id="@+id/SignUp_TXT_logIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already have an account? Log In"
+            android:text="@string/already_have_an_account_log_in"
             android:textColor="@color/colorDarkText"
             />
 
@@ -119,7 +107,6 @@
             android:layout_marginTop="20dp"
             android:progressTint="#EFC957"
             android:visibility="invisible"/>
-
     </LinearLayout>
 
     <ImageView

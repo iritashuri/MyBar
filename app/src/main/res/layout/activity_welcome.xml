@@ -20,7 +20,7 @@
             android:id="@+id/Welcome_TXT_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome to MyBar!"
+            android:text="@string/welcome_to_mybar"
             android:textSize="50dp"
             android:layout_marginBottom="150dp"
             android:fontFamily="cursive"
@@ -40,7 +40,7 @@
             android:textSize="20dp"
             android:background="@drawable/mybtn"
             android:layout_marginBottom="40dp"
-            android:text="Sign In"
+            android:text="@string/sign_in"
             />
 
         <Button
@@ -51,7 +51,7 @@
             android:textSize="20dp"
             android:background="@drawable/mybtn"
             android:layout_marginBottom="20dp"
-            android:text="Sign Up"/>
+            android:text="@string/sign_up"/>
 
     </LinearLayout>
     <ImageView

@@ -24,12 +24,13 @@ import com.google.gson.Gson;
 
 public class Activity_Profile extends AppCompatActivity {
 
-    TextView Profile_TXT_Name;
-    TextView Profile_TXT_email;
-    TextView Profile_TXT_phone;
-    Button Profile_BTN_edit;
-    Button Profile_BTN_LogOut;
-    Button Profile_BTN_delete;
+    private TextView Profile_TXT_Name;
+    private TextView Profile_TXT_email;
+    private TextView Profile_TXT_phone;
+    private Button Profile_BTN_edit;
+    private Button Profile_BTN_LogOut;
+    private Button Profile_BTN_delete;
+    private Button Profile_BTN_back;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -85,6 +86,14 @@ public class Activity_Profile extends AppCompatActivity {
                 logOut();
             }
         });
+
+        // Go back and close activity
+        Profile_BTN_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void openEdit() {
@@ -120,6 +129,7 @@ public class Activity_Profile extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d("pttt", "User account deleted.");
                             //Open Welcome
+                            finish();
                             openWelcome();
                         }else {
                             Toast.makeText(Activity_Profile.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -154,6 +164,7 @@ public class Activity_Profile extends AppCompatActivity {
          Profile_BTN_edit= findViewById(R.id.Profile_BTN_edit);
          Profile_BTN_LogOut= findViewById(R.id.Profile_BTN_LogOut);
          Profile_BTN_delete= findViewById(R.id.Profile_BTN_delete);
+        Profile_BTN_back = findViewById(R.id.Profile_BTN_back);
     }
 
     private void openWelcome(){

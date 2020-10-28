@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|bottom"
                 android:layout_marginBottom="10dp"
-                android:text="Welcome"
+                android:text="@string/welcome"
                 android:textSize="40dp"
                 android:textColor="@color/colorDarkText"/>
 
@@ -52,7 +52,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="My Profile"
+                android:text="@string/my_profile"
                 android:textSize="20dp"
                 android:textColor="@color/colorDarkText"/>
         </LinearLayout>
@@ -85,7 +85,7 @@
                     />
 
                     <TextView
-                        android:text="Orders History"
+                        android:text="@string/orders_history"
                         android:gravity="center"
                         android:layout_height="match_parent"
                         android:layout_width="match_parent"
@@ -105,7 +105,7 @@
                     android:textColor="#CC3636"
                     android:textSize="20dp" />
                     <TextView
-                        android:text="Cards"
+                        android:text="@string/cards"
                         android:gravity="center"
                         android:layout_height="match_parent"
                         android:layout_width="match_parent"
@@ -135,7 +135,7 @@
                     android:textColor="#CC3636"
                     android:textSize="20dp" />
                     <TextView
-                        android:text="Our Deals"
+                        android:text="@string/our_deals"
                         android:gravity="center"
                         android:layout_height="match_parent"
                         android:layout_width="match_parent"
@@ -157,7 +157,7 @@
                     android:textColor="#CC3636"
                     android:textSize="20dp" />
                 <TextView
-                    android:text="Menu"
+                    android:text="@string/menu"
                     android:gravity="center"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
@@ -178,7 +178,7 @@
             android:textSize="15dp"
             android:background="@drawable/mybtn"
             android:layout_marginTop="20dp"
-            android:text="Log Out"
+            android:text="@string/log_out"
             />
 
 

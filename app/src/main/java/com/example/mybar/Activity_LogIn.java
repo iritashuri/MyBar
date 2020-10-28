@@ -31,6 +31,7 @@ public class Activity_LogIn extends AppCompatActivity {
     private ProgressBar SignIn_PRBR_progressBar;
     private TextView SignIn_TXT_signUp;
     private TextView SignIn_TXT_forgotPassword;
+    private Button LogIn_BTN_back;
 
     private FirebaseAuth mAuth;
 
@@ -66,6 +67,14 @@ public class Activity_LogIn extends AppCompatActivity {
             }
         });
 
+        // Go back and close activity
+        LogIn_BTN_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void findViews(){
@@ -75,6 +84,7 @@ public class Activity_LogIn extends AppCompatActivity {
         SignIn_PRBR_progressBar = findViewById(R.id.SignIn_PRBR_progressBar);
         SignIn_TXT_signUp = findViewById(R.id.SignIn_TXT_signUp);
         SignIn_TXT_forgotPassword = findViewById(R.id.SignIn_TXT_forgotPassword);
+        LogIn_BTN_back= findViewById(R.id.LogIn_BTN_back);
     }
 
 
