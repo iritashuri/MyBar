@@ -21,13 +21,13 @@ import java.util.ArrayList;
 
 public class Activity_ItemCategory extends AppCompatActivity {
 
-    RecyclerView ItemCategory_LST_dealsList;
-    Button ItemCategory_BTN_back;
+    private RecyclerView ItemCategory_LST_dealsList;
+    private Button ItemCategory_BTN_back;
 
     private FirebaseFirestore db;
 
     private MySPV mySPV;
-    Gson json = new Gson();
+    private Gson json = new Gson();
 
 
     @Override

@@ -17,7 +17,7 @@ import java.lang.reflect.Type;
 public class Activity_OrderDisplay extends AppCompatActivity implements OrderCallBack{
 
     private MySPV mySPV;
-    Gson gson = new Gson();
+    private Gson gson = new Gson();
 
     //Define Buttons
     private Button OrderDisplay_BTN_Map;

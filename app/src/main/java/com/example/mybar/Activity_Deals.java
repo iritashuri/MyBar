@@ -22,10 +22,10 @@ import java.util.ArrayList;
 public class Activity_Deals extends AppCompatActivity {
 
     private RecyclerView Deals_LST_dealsList;
-    Button Deals_BTN_back;
+    private Button Deals_BTN_back;
 
     private FirebaseDatabase database;
-    DatabaseReference myRef;
+    private DatabaseReference myRef;
 
 
     @Override
@@ -84,7 +84,6 @@ public class Activity_Deals extends AppCompatActivity {
     Adapter_Deals.DealItemClickListener dealItemClickListener = new Adapter_Deals.DealItemClickListener() {
         @Override
         public void itemClicked(Deal exercise, int position) {
-            Toast.makeText(Activity_Deals.this, exercise.getDescription() + " Clicked", Toast.LENGTH_LONG).show();
         }
     };
 

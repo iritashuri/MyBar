@@ -40,9 +40,9 @@ public class Activity_UpdateUser extends AppCompatActivity {
 
 
     private MySPV mySPV;
-    Gson gson = new Gson();
+    private Gson gson = new Gson();
 
-    User current_user = new User();
+    private User current_user = new User();
 
 
     @Override

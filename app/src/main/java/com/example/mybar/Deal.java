@@ -3,7 +3,7 @@ package com.example.mybar;
 import java.util.UUID;
 
 public class Deal {
-    String key;
+    private String key;
     private String description;
     private String price;
 

@@ -38,7 +38,7 @@ public class Activity_Main extends AppCompatActivity {
     public User current_user = new User();
 
     private MySPV mySPV;
-    Gson gson = new Gson();
+    private Gson gson = new Gson();
 
     static Activity_Main activity_main;
 

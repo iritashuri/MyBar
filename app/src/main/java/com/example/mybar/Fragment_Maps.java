@@ -25,11 +25,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Fragment_Maps extends Fragment implements OnMapReadyCallback {
     // This fragment represent an order location in google map
-    Order current_order;
+    private Order current_order;
     protected View view;
-    private GoogleMap mgoogleMap;
-    MapView mMapView;
-    Context context;
+    private MapView mMapView;
 
     private OrderCallBack orderCallBack;
 
@@ -37,12 +35,8 @@ public class Fragment_Maps extends Fragment implements OnMapReadyCallback {
         this.orderCallBack = orderCallBack;
     }
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public Fragment_Maps() {
-        // Required empty public constructor
     }
 
     public static Fragment_Maps newInstance() {
@@ -53,10 +47,6 @@ public class Fragment_Maps extends Fragment implements OnMapReadyCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
     }
 
     @Override
@@ -64,7 +54,7 @@ public class Fragment_Maps extends Fragment implements OnMapReadyCallback {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         try {
-            view = inflater.inflate(R.layout.fragment_maps, container, false);            // ... rest of body of onCreateView() ...
+            view = inflater.inflate(R.layout.fragment_maps, container, false);
         } catch (Exception e) {
             Log.e("Erryyy", "onCreateView", e);
             throw e;
@@ -81,7 +71,7 @@ public class Fragment_Maps extends Fragment implements OnMapReadyCallback {
     // Display order location on the map
     private void showOrderLocationOnMap(GoogleMap googleMap){
         googleMap.addMarker(new MarkerOptions().position(new LatLng(current_order.getLat(), current_order.getLon())).snippet(current_order.getTimestamp()));
-        CameraPosition current_pos = CameraPosition.builder().target(new LatLng(current_order.getLat(), current_order.getLon())).build();
+        CameraPosition current_pos = CameraPosition.builder().target(new LatLng(current_order.getLat(), current_order.getLon())).zoom(8).build();
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(current_pos));
     }
 
@@ -151,7 +141,6 @@ public class Fragment_Maps extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         MapsInitializer.initialize(getContext());
 
-        mgoogleMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         showOrderLocationOnMap(googleMap);
     }

@@ -27,7 +27,7 @@ public class Activity_Menu extends AppCompatActivity {
 
     // Set SP
     private MySPV mySPV;
-    Gson gson = new Gson();
+    private Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -36,7 +36,7 @@ public class Activity_Profile extends AppCompatActivity {
     private FirebaseFirestore db;
 
     private MySPV mySPV;
-    Gson gson = new Gson();
+    private Gson gson = new Gson();
 
     static Activity_Profile activity_profile;
 

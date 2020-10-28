@@ -40,7 +40,7 @@ public class Activity_SignUp extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
-    String userId;
+    private String userId;
 
 
     @Override

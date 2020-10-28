@@ -27,10 +27,10 @@ public class Activity_OrdersHistory extends AppCompatActivity {
     private FirebaseFirestore db;
 
     private MySPV mySPV;
-    Gson json = new Gson();
+    private Gson json = new Gson();
 
-    User current_user = new User();
-    String current_user_id = "";
+    private User current_user = new User();
+    private String current_user_id = "";
 
 
     @Override
