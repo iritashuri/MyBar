@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Source;
 import com.google.gson.Gson;
 
 
@@ -25,6 +27,7 @@ public class Activity_Main extends AppCompatActivity {
     private Button Main_BTN_My_Orders;
     private Button Main_BTN_Daily_deals;
     private Button Main_BTN_LogOut;
+    private Button Main_BTN_My_cards;
     private CardView Main_Card_user;
     private Button Main_BTN_Menu;
 
@@ -109,6 +112,15 @@ public class Activity_Main extends AppCompatActivity {
             }
         });
 
+        // Open cards dialog
+        Main_BTN_My_cards.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("dialog", "openFreeDrinksCardDialog  ");
+                openFreeDrinksCardDialog();
+            }
+        });
+
     }
 
     private void logOut() {
@@ -116,6 +128,13 @@ public class Activity_Main extends AppCompatActivity {
         mySPV.deleteString(MySPV.KEYS.CURRENT_USER);
         openWelcome();
         finish();
+    }
+
+    private void openFreeDrinksCardDialog() {
+        // Get number of drinks
+        int drinks = current_user.getDrinks();
+        FreeDrinksCardsDialog freeDrinksCardsDialog = new FreeDrinksCardsDialog(drinks);
+        freeDrinksCardsDialog.show(getSupportFragmentManager(), " free drinks");
     }
 
     private void openOrdersHistory() {
@@ -153,6 +172,7 @@ public class Activity_Main extends AppCompatActivity {
         Main_BTN_LogOut = findViewById(R.id.Main_BTN_LogOut);
         Main_Card_user = findViewById(R.id.Main_Card_user);
         Main_BTN_Menu = findViewById(R.id.Main_BTN_Menu);
+        Main_BTN_My_cards = findViewById(R.id.Main_BTN_My_cards);
     }
 
     // Set current_user With data from the firebase
@@ -163,6 +183,13 @@ public class Activity_Main extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot doc = task.getResult();
                     current_user.setFull_name(doc.getString("full_name")).setEmail(doc.getString("email")).setPhone(doc.getString("phone"));
+                    // Set new drinks number
+                    int drinks;
+                    if(!(doc.get("drinks").toString().isEmpty()))
+                        drinks = Integer.parseInt(doc.get("drinks").toString());
+                    else
+                        drinks = 0;
+                    current_user.setDrinks(drinks);
                     if(customCallback!=null){
                         customCallback.onComplete(current_user);
                     }
